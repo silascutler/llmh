@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llmh-worker"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+  "llmh-api",
+  "redis>=5",
+  "sqlalchemy[asyncio]>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2",
+  "pytest-asyncio>=0.23",
+]
+
+[tool.setuptools]
+packages = ["llmh_worker"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
